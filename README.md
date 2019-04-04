@@ -4,13 +4,12 @@
 1. Number Bases *(April 1)*\
 bases: decimal, binary, hexidecimal\
 [bases.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/bases.py)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Decode**: turns number into base 10\
-&nbsp;&nbsp;takes in two parameters(1. digits 2. base)\
+**Decode**: *turns number into base 10*\
+&nbsp;&nbsp;&nbsp;takes in two parameters(1. digits 2. base)\
 &nbsp;&nbsp;&nbsp;*digits* being string format of the number.\
-&nbsp;&nbsp;&nbsp;*base* being the integer representation of the digits base.\
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Encode**: encodes given changes number from base 10 into different base\
-&nbsp;&nbsp;takes in three parameters(1. digits 2. base1, base2)\ 
+&nbsp;&nbsp;&nbsp;*base* being the integer representation of the digits base.
+**Encode**: *encodes given changes number from base 10 into different base*\
+&nbsp;&nbsp;&nbsp;takes in three parameters(1. digits 2. base1, base2) \
 &nbsp;&nbsp;&nbsp;*digits* being an int of the number.\
 &nbsp;&nbsp;&nbsp;*base1* being the integer representation of the digits base.\
 &nbsp;&nbsp;&nbsp;*base2* being the integer representation of the base you want to convert to.\
