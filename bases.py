@@ -21,15 +21,14 @@ def decode(digits, base):
     # TODO: Decode digits from hexadecimal (base 16)
     # TODO: Decode digits from any base (2 up to 36)
 
-    num_arr = digits[::-1]
     result = 0
 
     if base == 10:
         return digits
-    for i, num in enumerate(num_arr):
-        print(num)
+    for i, num in enumerate(reversed(digits)):
         number = int(num) * base**i
         result += number
+
 
     return result
 
