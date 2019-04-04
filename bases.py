@@ -49,6 +49,17 @@ def encode(number, base):
     # TODO: Encode number in any base (2 up to 36)
 
 
+    result_arr = []
+
+    all_print = string.printable
+
+    while number > 0:
+        remainder = number % base
+        number = number // base
+        result_arr.insert(0, all_print[remainder])
+
+    return "".join(result_arr)
+
 
 def convert(digits, base1, base2):
     """Convert given digits in base1 to digits in base2.
