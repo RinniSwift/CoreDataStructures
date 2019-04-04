@@ -21,17 +21,15 @@ def decode(digits, base):
     # TODO: Decode digits from hexadecimal (base 16)
     # TODO: Decode digits from any base (2 up to 36)
 
-    num_arr = list(digits)[::-1]
+    num_arr = digits[::-1]
     result = 0
-    power = 0
 
     if base == 10:
         return digits
-
-    for num in num_arr:
-        number = int(num) * base**power
+    for i, num in enumerate(num_arr):
+        print(num)
+        number = int(num) * base**i
         result += number
-        power += 1
 
     return result
 
@@ -43,7 +41,7 @@ def encode(number, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
-    assert number >= 0, 'number is negative: {}'.format(number)
+    assert int(number) >= 0, 'number is negative: {}'.format(number)
     # TODO: Encode number in binary (base 2)
     # TODO: Encode number in hexadecimal (base 16)
     # TODO: Encode number in any base (2 up to 36)
@@ -71,19 +69,22 @@ def convert(digits, base1, base2):
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
     # TODO: Convert digits from base 2 to base 16 (and vice versa)
-    # ...
     # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    # ...
     # TODO: Convert digits from base 10 to base 16 (and vice versa)
-    # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
-    # ...
+
+    if base1 == base2:
+        return digits
+
+    base10 = decode(digits, base1)
+    num = encode(base10, base2)
+    return num
 
 
 def main():
     """Read command-line arguments and convert given digits between bases."""
 
-    print(decode('101', 2))
+    print(decode('1011', 2))
 
     import sys
     args = sys.argv[1:]  # Ignore script file name
