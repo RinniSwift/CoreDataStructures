@@ -21,12 +21,17 @@ def decode(digits, base):
     # TODO: Decode digits from hexadecimal (base 16)
     # TODO: Decode digits from any base (2 up to 36)
 
+    base_string = string.digits + string.ascii_lowercase
+
     result = 0
+    print(digits)
 
     if base == 10:
-        return digits
-    for i, num in enumerate(reversed(digits)):
-        number = int(num) * base**i
+        return int(digits)
+    for i, char_num in enumerate(reversed(digits.lower())):
+        print(i, char_num)
+        number = base_string.index(char_num) * base**i
+        print("multiplied number: {}".format(number))
         result += number
 
 
@@ -48,12 +53,14 @@ def encode(number, base):
 
     result_arr = []
 
-    all_print = string.printable
+    all_print = string.digits + string.ascii_lowercase
 
-    while number > 0:
-        remainder = number % base
-        number = number // base
+    while int(number) > 0:
+        remainder = int(number) % base
+        number = int(number) // base
         result_arr.insert(0, all_print[remainder])
+
+    print(result_arr)
 
     return "".join(result_arr)
 
@@ -83,7 +90,7 @@ def convert(digits, base1, base2):
 def main():
     """Read command-line arguments and convert given digits between bases."""
 
-    print(decode('1011', 2))
+    print(decode('111', 2))
 
     import sys
     args = sys.argv[1:]  # Ignore script file name
