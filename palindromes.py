@@ -1,9 +1,12 @@
 import string
+
 # Hint: Use these string constants to ignore capitalization and/or punctuation
 # string.ascii_lowercase is 'abcdefghijklmnopqrstuvwxyz'
 # string.ascii_uppercase is 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 # string.ascii_letters is ascii_lowercase + ascii_uppercase
 
+
+INVALID_LIST = string.punctuation + string.whitespace
 
 def is_palindrome(text):
     """A string of characters is a palindrome if it reads the same forwards and
@@ -11,18 +14,25 @@ def is_palindrome(text):
     # implement is_palindrome_iterative and is_palindrome_recursive below, then
     # change this to call your implementation to verify it passes all tests
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
-    # return is_palindrome_iterative(text)
-    return is_palindrome_recursive(text)
+    return is_palindrome_iterative(text)
+    # return is_palindrome_recursive(text)
 
 
 def is_palindrome_iterative(text):
     # TODO: implement the is_palindrome function iteratively here
 
+    
+    # text = text.lower().replace(" ", "").replace("!", "").replace(",", "").replace("?", "").replace(".", "").replace("-", "").replace("'", "")
     left = 0
     right = len(text) - 1
-    text = text.lower()
     while left <= right:
-        if text[left] == text[right]:
+        
+        while text[left] in INVALID_LIST:
+            left += 1
+        while text[right] in INVALID_LIST:
+            right -= 1
+
+        if text[left] == text[right] or text[left].lower() == text[right].lower():
             left += 1
             right -= 1
         else:
@@ -31,18 +41,25 @@ def is_palindrome_iterative(text):
 
 def is_palindrome_recursive(text, left=None, right=None):
     # TODO: implement the is_palindrome function recursively here
-    if len(text) <= 1:
+
+    if left == None:
+        left = 0
+        right = len(text) - 1
+    if len(text) == 0:
         return True
 
-    left = 0
-    right = -1
-    text = text.lower()
+    while text[left] in INVALID_LIST:
+        left += 1
+    while text[right] in INVALID_LIST:
+        right -= 1
 
-    if text[0] != text[-1]:
+    if left >= right:
+        return True
+    if text[left].lower() != text[right].lower():
         return False
+    
+    return is_palindrome_recursive(text, left + 1, right - 1)
 
-    return is_palindrome_recursive(text[1:-1], left, right)
-        
 
 def main():
     import sys
@@ -60,5 +77,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+    print(is_palindrome("no, on!"))
 
 
