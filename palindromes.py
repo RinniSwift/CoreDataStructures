@@ -31,17 +31,17 @@ def is_palindrome_iterative(text):
 
 def is_palindrome_recursive(text, left=None, right=None):
     # TODO: implement the is_palindrome function recursively here
+    if len(text) <= 1:
+        return True
+
     left = 0
-    right = len(text) - 1
+    right = -1
     text = text.lower()
-    while left <= right:
-        if text[left] == text[right]:
-            left += 1
-            right -= 1
-        else:
-            return False
-        return is_palindrome_recursive(text[1:-1], left, right)
-    return True
+
+    if text[0] != text[-1]:
+        return False
+
+    return is_palindrome_recursive(text[1:-1], left, right)
         
 
 def main():
@@ -59,5 +59,6 @@ def main():
 
 
 if __name__ == '__main__':
-    print(is_palindrome('rearaer'))
     main()
+
+
