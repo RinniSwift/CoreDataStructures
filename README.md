@@ -10,7 +10,7 @@
 ###### 8 bits two's complement, addition
 *ith negative values, get the 8 bit value, look for the one from right to left. and flip everything after that one value.*
 	
-[bases.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/bases.py)\
+1. [bases.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/bases.py)\
 &nbsp;&nbsp;&nbsp;**Decode**: *turns number into base 10*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;takes in two parameters(1. digits 2. base)\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*digits* being string format of the number.\
@@ -27,5 +27,17 @@
 **Binary search**: O(log(n)) run time. Also called the 'divide and conquer' approach since we are only looking at the middle and reducing ini half everytime. [checks middle value and decides to cut the entire left side or entire right]. data structure must be sorted and items must be comparable.\
 &nbsp;&nbsp;&nbsp;&nbsp;*logarithm* mainly used for finding x where x is an exponent. log(n), n being the number of items in the data structure, meaning the amount of times it takes to divide the data structure into half until the data structure is 1.
 
-[search.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/search.py)\
-[factorial_recurssion.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/factorial_recursion.py)
+2. [search.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/search.py)
+3. [factorial_recurssion.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/factorial_recursion.py)
+
+### String algorithms *(April 8)*
+4. [strings.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/strings.py)\
+&nbsp;&nbsp;&nbsp;**contains**: *function that returns true if pattern is found in the text*\
+&nbsp;&nbsp;&nbsp;**find_index**: *function that returns the first index of found pattern in the text*\
+&nbsp;&nbsp;&nbsp;**find_all_indexes**: *function that returns all initial indexes of the pattern that has been found in the text in a list*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*text: a body of text in (string format)*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*pattern: a smaller body of text to compare in the text(string format)*
+
+5. [palindromes.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/palindromes.py)\
+&nbsp;&nbsp;&nbsp;**palindrom**: *a string that reads the same forwards and backwards*\
+&nbsp;&nbsp;&nbsp;**is_palindrome**: *function implemented both iteratively and recurssively returning bool indicating if is a palindrome*
