@@ -18,14 +18,13 @@ def linear_search_iterative(array, item):
 
 def linear_search_recursive(array, item, index=0):
     # TODO: implement linear search recursively here
-    if index >= len(array):
-            return None
-    if array[index] == item:
+
+    if index >= len(array):     #check if index is valid
+        return None     
+    elif array[index] == item:  #'is' checks the equivelence in reference, '==' checks if they are identical
         return index
-
-    
+        
     index += 1
-
     return linear_search_recursive(array, item, index)
 
     # once implemented, change linear_search to call linear_search_recursive
@@ -53,13 +52,12 @@ def binary_search_iterative(array, item):
         if median_value == item:
             return median_index
 
-        if item > median_value:
+        if item > median_value:         # item is to the right of the median
             left = median_index + 1
         else:
-            right = median_index - 1
+            right = median_index - 1    # item is to the left of the median
 
-    # once implemented, change binary_search to call binary_search_iterative
-    # to verify that your iterative implementation passes all tests
+    return None # not found
 
 
 def binary_search_recursive(array, item, left=None, right=None):
@@ -73,6 +71,8 @@ def binary_search_recursive(array, item, left=None, right=None):
     if left == None or right == None:
         left = 0
         right = len(array) - 1
+    elif left > right:
+        return None
 
     median_index = (right + left) // 2
     median_value = array[median_index]
@@ -85,19 +85,18 @@ def binary_search_recursive(array, item, left=None, right=None):
     else: 
         right = median_index - 1
 
-    if right == left:
-        if array[right] == item:
-            return right
-        return None
-
-    
-
+    # if right == left:
+    #     if array[right] == item:
+    #         return right
+    #     return None
 
     return binary_search_recursive(array, item, left, right)
 
 
 
 
+if __name__ == '__main__':
+    print(binary_search_iterative([1, 3, 5, 9], 10))
 
 
 
