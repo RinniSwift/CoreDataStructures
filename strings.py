@@ -5,6 +5,7 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
+
     if len(pattern) > len(text):
         return False
     position = 0
@@ -18,7 +19,7 @@ def contains(text, pattern):
             position = 0
     return False
 
-
+ 
 def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
     or None if not found."""
@@ -26,18 +27,28 @@ def find_index(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
 
+    if len(pattern) == 0:
+        return 0
+
     index = None
     position = 0
-    
+
     for (ind, char) in enumerate(text):
         if char == pattern[position]:
-            if position == len(pattern) - 1:
-                return index
+            print("equal")
             if position == 0:
                 index = ind
+            if position == len(pattern) - 1:
+                return index
             position += 1
         else:
-            index = None
+            if text[ind] == pattern[0]:
+                index = ind
+                position = 1
+            else:
+                index = None
+                position = 0
+
     return index
 
 
@@ -49,8 +60,12 @@ def find_all_indexes(text, pattern):
     or an empty list if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
+
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
     indexes = []
+
+    if len(pattern) == 0:
+        return list(range(len(text) - 1))
 
     for (ind, char) in enumerate(text):
         if char == pattern[0]:
@@ -90,7 +105,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
-    print(contains('abra cadabra', 'abra'))
-    print(find_index('abra cadabra', 'dabra'))
-    print(find_all_indexes('abra cadabra', 'abra'))
+    # main()
+    # print(contains('abra cadabra', 'abra'))
+    # print(find_index('abra cadabra', 'dabra'))
+    print(find_index('ababcd', 'babcd'))
+    # print(find_all_indexes('abccc', 'cc'))
