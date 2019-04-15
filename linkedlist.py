@@ -19,6 +19,7 @@ class LinkedList(object):
         self.head = None  # First node
         self.tail = None  # Last node
         self.size = 0  # Number of nodes
+        self.node_count = 0
         # Append the given items
         if iterable is not None:
             for item in iterable:
@@ -81,12 +82,17 @@ class LinkedList(object):
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node at the given index and return its data
-        
-        node = self.head
-        for i in range(index):
-            if i == index:
-                return node
-            node = node.next
+
+        if index == 0:
+            return self.head
+        elif index == self.size - 1:
+            return self.tail
+        else:
+            node = self.head
+            for i in range(index):
+                if i == index:
+                    return node
+                node = node.next
 
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
@@ -97,19 +103,31 @@ class LinkedList(object):
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
-
+        
         new_node = Node(item)
-        node = self.head
-        for i in range(index - 1):
-            if i == index - 1:
-                new_node.next = node.next
-                node.next = new_node
-            node = node.next
+        if index == 0:
+            new_node.next = self.head
+            self.head = new_node
+        elif index == (self.size - 1):
+            self.tail.next = new_node
+            self.tail = new_node
+        else:
+            node = self.head
+            for i in range(index - 1):
+                if i == index - 1:
+                    new_node.next = node.next
+                    node.next = new_node
+                node = node.next
+        
+        self.size += 1
+        
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
         Best and worst case running time: ??? under what conditions? [TODO]"""
         # Create a new node to hold the given item
+        self.size += 1
+
         new_node = Node(item)
         # Check if this linked list is empty
         if self.is_empty():
@@ -125,6 +143,8 @@ class LinkedList(object):
         """Insert the given item at the head of this linked list.
         Best and worst case running time: ??? under what conditions? [TODO]"""
         # Create a new node to hold the given item
+        self.size += 1
+
         new_node = Node(item)
         # Check if this linked list is empty
         if self.is_empty():
@@ -168,6 +188,7 @@ class LinkedList(object):
         Best case running time: ??? under what conditions? [TODO]
         Worst case running time: ??? under what conditions? [TODO]"""
         # Start at the head node
+        self.size -= 1
         node = self.head
         # Keep track of the node before the one containing the given item
         previous = None
@@ -246,3 +267,22 @@ def test_linked_list():
 
 if __name__ == '__main__':
     test_linked_list()
+    print("-------------------")
+    linked = LinkedList()
+    print(linked)
+
+    linked.append("A")
+    linked.append("B")
+    print(linked)
+    print(linked.head)
+    print(linked.tail)
+
+    print(linked.size)
+    linked.insert_at_index(1, "C")
+    linked.insert_at_index(0, "F")
+    print(linked)
+    print(linked.size)
+    print(linked.head)
+    print(linked.tail)
+
+
