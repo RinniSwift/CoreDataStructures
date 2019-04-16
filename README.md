@@ -41,3 +41,22 @@
 5. [palindromes.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/palindromes.py)\
 &nbsp;&nbsp;&nbsp;**palindrom**: *a string that reads the same forwards and backwards*\
 &nbsp;&nbsp;&nbsp;**is_palindrome**: *function implemented both iteratively and recurssively returning bool indicating if is a palindrome*
+
+### Arrays and LinkedLists *(April 10)*
+6. [linkedlist.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/linkedlist.py)\
+&nbsp;&nbsp;&nbsp;**size**: property tracks the length of the linked list\
+&nbsp;&nbsp;&nbsp;**get_at_index**: returns the item at that index\
+&nbsp;&nbsp;&nbsp;**insert_at_index**: inserts given item at given index\
+&nbsp;&nbsp;&nbsp;**replace**: replaces item at given index
+
+### Lists, Stacks, and Queues *(April 15)*
+7. [stacks.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/stack.py)\
+&nbsp;&nbsp;&nbsp;**LinkedStack**: stack implemented as a linkedlist\
+&nbsp;&nbsp;&nbsp;**ArrayStack**: stack implemented as an array\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*is_empty: check if the stack is empty*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*length: checks the total length of the stack*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*push: push item to top of stack*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*pop: removes and returns the item on the top of the stack*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*peek: returns the top item on the stack*
+
+8. [queue.py]()
