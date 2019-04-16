@@ -53,10 +53,17 @@
 7. [stacks.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/stack.py)\
 &nbsp;&nbsp;&nbsp;**LinkedStack**: stack implemented as a linkedlist\
 &nbsp;&nbsp;&nbsp;**ArrayStack**: stack implemented as an array\
+\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*is_empty: check if the stack is empty*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*length: checks the total length of the stack*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*push: push item to top of stack*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*pop: removes and returns the item on the top of the stack*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*peek: returns the top item on the stack*
 
-8. [queue.py]()
+8. [queue.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/queue.py)\
+&nbsp;&nbsp;&nbsp;**LinkedQueue**: queue implemented as a linkedlist\
+&nbsp;&nbsp;&nbsp;**ArrayQueue**: queue implemented as an array\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*is_empty: check if the queue is empty*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*length: checks the total length of items in the queue*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*enqueue: append item into the back of the queue*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*dequeue: removes and returns the item at the fron of the queue*
