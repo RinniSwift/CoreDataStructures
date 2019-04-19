@@ -15,7 +15,7 @@ def contains(text, pattern):
             return False
         else: 
             return True
-            
+
  
 def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
@@ -29,6 +29,9 @@ def find_index(text, pattern):
 
     index = None
     position = 0
+
+    # O(1) best case where the pattern is in at the start of the text
+    # O(n) worst case where the pattern is at the end of the text. Has to loop through the entire text
 
     for (ind, char) in enumerate(text):
         if char == pattern[position]:
@@ -54,6 +57,7 @@ def find_index(text, pattern):
 def find_all_indexes(text, pattern):
     """Return a list of starting indexes of all occurrences of pattern in text,
     or an empty list if not found."""
+    # run time O(n) best case and worst case when the pattern is less than the text length. looping through all the characters in the text
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
