@@ -15,18 +15,7 @@ def contains(text, pattern):
             return False
         else: 
             return True
-
-    # position = 0
-    # for char in text:
-    #     if char == pattern[position]:
-    #         if position == len(pattern) - 1:
-    #             return True
-    #         else: 
-    #             position += 1
-    #     else:
-    #         position = 0
-    # return False
-
+            
  
 def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
