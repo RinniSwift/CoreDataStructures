@@ -116,6 +116,8 @@ class StringsTest(unittest.TestCase):
         # TODO: Write more test cases that check complex patterns or edge cases
         # You'll need a lot more than this to test your algorithm's robustness
         # ...
+        assert find_all_indexes('aaaaaaaa', 'aa') == [0, 1, 2, 3, 4, 5, 6]
+        assert find_all_indexes('aaaaaaaaaaaaaaa', 'aaaa') == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 
 if __name__ == '__main__':
