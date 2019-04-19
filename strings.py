@@ -73,36 +73,35 @@ def find_all_indexes(text, pattern):
 
     if len(pattern) == 0:
         return list(range(len(text)))
-    elif len(pattern) == 1:
-        position = 0
-        for (ind, char) in enumerate(text):
-            if char == pattern[position]:
-                all_indexes.append(ind)
+    if len(pattern) > len(text):
         return all_indexes
-    else:
-        all_indexes = []
 
-        start_index = None
-        patt_position = 0
+    text_index = 0
+    pattern_index = 0
 
+    while text_index != len(text):
 
-        for i in range(len(text)):
-            if text[i] == pattern[patt_position]:
-                if patt_position == 0:
-                    start_index = i
-                    patt_position += 1
-                elif patt_position == len(pattern) - 1:
-                    all_indexes.append(start_index)
-                    start_index = None
-                    patt_position = 0
-                    if text[i] == pattern[0]:
-                        start_index = i
-                        patt_position = 1
+        if text[text_index] == pattern[pattern_index]:
+
+            if pattern_index == len(pattern) - 1:
+                start_index = text_index - pattern_index
+                all_indexes.append(start_index)
+
+                text_index = start_index + 1
+                pattern_index = 0
+
             else:
-                patt_position = 0
-                start_index = None
+                pattern_index += 1
+                text_index += 1
 
-        return all_indexes
+        else:
+
+            if pattern_index != 0:
+                text_index = (text_index - pattern_index) + 1
+            else:
+                text_index += 1
+
+            pattern_index = 0
 
     return all_indexes
 
