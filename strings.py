@@ -79,26 +79,35 @@ def find_all_indexes(text, pattern):
     text_index = 0
     pattern_index = 0
 
+    # guard not to go out of bounds
     while text_index != len(text):
 
         if text[text_index] == pattern[pattern_index]:
 
+            # equal until last character in pattern
             if pattern_index == len(pattern) - 1:
+
+                # calculate the start index and append to the result array
                 start_index = text_index - pattern_index
                 all_indexes.append(start_index)
 
+                # point the text index to be one ahead the start index
                 text_index = start_index + 1
                 pattern_index = 0
 
+            # equal in the pattern
             else:
+
                 pattern_index += 1
                 text_index += 1
 
         else:
 
+            # set back to the next index since it didnt pass all the pattern
             if pattern_index != 0:
                 text_index = (text_index - pattern_index) + 1
             else:
+                # set to next index
                 text_index += 1
 
             pattern_index = 0
