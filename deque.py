@@ -1,5 +1,5 @@
 
-class Dequeue(object):
+class Deque(object):
 	'''double-ended queue'''
 
 	def __init__(self, iterable=None):
@@ -29,11 +29,13 @@ class Dequeue(object):
 		"""Insert item at front of deque"""
 		# runtime O(n) having to shift all the slots in the array back
 		self.list.insert(item, 0)
+		self.size += 1
 
 	def push_back(item):
 		"""Insert item at back of the deque"""
 		# runtime O(1)*average
 		self.list.append(item)
+		self.size += 1
 
 	def front(self):
 		"""Returns item at front of deque"""
@@ -48,12 +50,14 @@ class Dequeue(object):
 	def pop_front(self):
 		"""Remove and return the item at the front of the deque"""
 		# runtime O(n) having to shift later elements up the list
+		self.size -= 1
 		return self.list.pop(0)
 
 	def pop_back(self):
 		"""Remove and return the item at the back of the deque"""
 		# runtime O(1) removing last element doesnt have effect on other elements
-		return self.list.pop(
+		self.size -= 1
+		return self.list.pop()
 
 
 
