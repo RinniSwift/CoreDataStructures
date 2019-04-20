@@ -2,17 +2,6 @@
 from deque import Deque
 import unittest
 
-'''
-is_empty    /
-length      /
-push_front  /
-push_back   /
-front       /
-back        /
-pop_front
-pop_back
-'''
-
 class DequeTest(unittest.TestCase):
 
     def test_init(self):

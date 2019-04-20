@@ -6,7 +6,6 @@ class Deque(object):
 		"""Initialize this queue and enqueue the given items, if any."""
 		self.list = list()
 		self.size = 0
-		# TODO: if iterable is not None
 		if iterable is not None:
 			for item in iterable:
 				self.push_back(item)
