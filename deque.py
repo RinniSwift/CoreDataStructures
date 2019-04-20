@@ -7,6 +7,9 @@ class Deque(object):
 		self.list = list()
 		self.size = 0
 		# TODO: if iterable is not None
+		if iterable is not None:
+			for item in iterable:
+				self.push_back(item)
 	
 	def __repr__(self):
 		"""Return a string representation of this deque."""
@@ -25,13 +28,13 @@ class Deque(object):
 		# runtime O(1) retrieving a variable
 		return self.size
 
-	def push_front(item):
+	def push_front(self, item):
 		"""Insert item at front of deque"""
 		# runtime O(n) having to shift all the slots in the array back
-		self.list.insert(item, 0)
+		self.list.insert(0, item)
 		self.size += 1
 
-	def push_back(item):
+	def push_back(self, item):
 		"""Insert item at back of the deque"""
 		# runtime O(1)*average
 		self.list.append(item)
@@ -40,7 +43,10 @@ class Deque(object):
 	def front(self):
 		"""Returns item at front of deque"""
 		# runtime O(1) retrieving value at an index
-		return self.list[0]
+		if self.is_empty():
+			return None
+		else:
+			return self.list[0]
 
 	def back(self):
 		"""Returns item at back of the deque"""
@@ -58,8 +64,3 @@ class Deque(object):
 		# runtime O(1) removing last element doesnt have effect on other elements
 		self.size -= 1
 		return self.list.pop()
-
-
-
-
-
