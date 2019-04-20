@@ -188,41 +188,59 @@ class DoublyLinkedList(object):
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
-        Best case running time: O(1) under what conditions? if deleting the head
-        Worst case running time: O(n) under what conditions? if the deleted item is right before the tail since having to loop all the way"""
+        Best case running time: O(1) if deleting head and tail of the linked list
+        Worst case running time: O(n) under what conditions? if deleting items within the linkedlist. invloves in looping over the linkedlist"""
         
 
         self.size -= 1
 
-	    # Start at the head node
-        node = self.head
+        deleted_node = Node(item)
 
-        while node != None:
-	        # Check if the node's data matches the given item
-            if node.data == item:
-                if self.head == node:
-                    if node.next == None:
-                        self.head = None
-                        self.tail = None
+        if self.head == deleted_node and self.tail == deleted_node:
+            self.head = None
+            self.tail = None
+            return
+        elif self.head == deleted_node:
+            # deleting the head
+            self.head.next.prev = None
+            self.head = self.head.next
+            return
+        elif self.tail == deleted_node:
+            # deleting tail
+            self.tail.prev.next = None
+            self.tail = self.tail.prev
+            return
+        else:
+
+	    # Start at the head node
+            node = self.head
+
+            while node != None:
+    	        # Check if the node's data matches the given item
+                if node.data == item:
+                    if self.head == node:
+                        if node.next == None:
+                            self.head = None
+                            self.tail = None
+                        else:
+    	                    self.head = node.next
+                        return
+                    elif self.tail == node:
+                        self.tail = node.prev
+                        self.tail.next = None
+                        return
                     else:
-	                    self.head = node.next
-                    return
-                elif self.tail == node:
-                    self.tail = node.prev
-                    self.tail.next = None
-                    return
+    	                node.prev.next = node.next
+    	                node.next.prev = node.prev
+                    	return
                 else:
-	                node.prev.next = node.next
-	                node.next.prev = node.prev
-                	return
-            else:
-	            # Skip to the next node
-                node = node.next
+    	            # Skip to the next node
+                    node = node.next
 	    # Check if we found the given item or we never did and reached the tail
 	    
-        else:
-	        # Otherwise raise an error to tell the user that delete has failed
-            raise ValueError('Item not found: {}'.format(item))
+            else:
+    	        # Otherwise raise an error to tell the user that delete has failed
+                raise ValueError('Item not found: {}'.format(item))
 
 ll = DoublyLinkedList(['A', 'B', 'C'])
 print(ll)
