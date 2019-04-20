@@ -82,3 +82,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*push_back: append item to the back of the deque*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*pop_front: returns item at front of the deque*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*pop_back: returns item at the back of the deque*
+
+### Hash Tables *(April 17)*
+11. [hashtables.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/hashtable.py)\
+&nbsp;&nbsp;&nbsp;**load_factor**: used chaining for collision resolution by using linkedlists\
+&nbsp;&nbsp;&nbsp;**load_factor**: calculating the load factor of the hash table\
+&nbsp;&nbsp;&nbsp;**resize**: method that is called when the load factor is greater than 0.75
