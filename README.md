@@ -8,7 +8,7 @@
 *with negative values, reverse all the values of the 8 bits from 0 to 1, 1 to 0.\
 *addition*: grab one's complement values and plus them, 1 + 1 = 0, but carry the 1 to the next addition.*
 ###### 8 bits two's complement, addition
-*ith negative values, get the 8 bit value, look for the one from right to left. and flip everything after that one value.*
+*with negative values, get the 8 bit value, look for the one from right to left. and flip everything after that one value.*
 	
 1. [bases.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/bases.py)\
 &nbsp;&nbsp;&nbsp;**Decode**: *turns number into base 10*\
