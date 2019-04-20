@@ -49,8 +49,12 @@
 &nbsp;&nbsp;&nbsp;**insert_at_index**: inserts given item at given index\
 &nbsp;&nbsp;&nbsp;**replace**: replaces item at given index
 
+7. [doubly_linkedlist.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/doubly_linkedlist.py)\
+&nbsp;&nbsp;&nbsp;**previous**: tracks the previous item of each node\
+&nbsp;&nbsp;&nbsp;**next**: tracks the next property of each node
+
 ### Lists, Stacks, and Queues *(April 15)*
-7. [stacks.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/stack.py)\
+8. [stacks.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/stack.py)\
 &nbsp;&nbsp;&nbsp;**LinkedStack**: stack implemented as a linkedlist\
 &nbsp;&nbsp;&nbsp;**ArrayStack**: stack implemented as an array\
 \
@@ -60,10 +64,21 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*pop: removes and returns the item on the top of the stack*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*peek: returns the top item on the stack*
 
-8. [queue.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/queue.py)\
+9. [queue.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/queue.py)\
 &nbsp;&nbsp;&nbsp;**LinkedQueue**: queue implemented as a linkedlist\
 &nbsp;&nbsp;&nbsp;**ArrayQueue**: queue implemented as an array\
+\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*is_empty: check if the queue is empty*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*length: checks the total length of items in the queue*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*enqueue: append item into the back of the queue*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*dequeue: removes and returns the item at the fron of the queue*
+
+10. [deque.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/deque.py)\
+&nbsp;&nbsp;&nbsp;**ArrayDeque**: deque implemented as an array\
+\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*is_empty: check if the deque is empty*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*length: checks the total length of items in the deque*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*push_front: append item to front of the deque*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*push_back: append item to the back of the deque*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*pop_front: returns item at front of the deque*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*pop_back: returns item at the back of the deque*
