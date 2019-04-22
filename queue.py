@@ -6,6 +6,7 @@ from linkedlist import LinkedList
 # Implement LinkedQueue below, then change the assignment at the bottom
 # to use this Queue implementation to verify it passes all tests
 class LinkedQueue(object):
+    # Linked Queue: front of queue is the head of the linkedlist
 
     def __init__(self, iterable=None):
         """Initialize this queue and enqueue the given items, if any."""
@@ -70,6 +71,7 @@ class LinkedQueue(object):
 # Implement ArrayQueue below, then change the assignment at the bottom
 # to use this Queue implementation to verify it passes all tests
 class ArrayQueue(object):
+    # ArrayQueue: front of queue is index 0 of array
 
     def __init__(self, iterable=None):
         """Initialize this queue and enqueue the given items, if any."""
@@ -84,7 +86,7 @@ class ArrayQueue(object):
         return 'Queue({} items, front={})'.format(self.length(), self.front())
 
     def is_empty(self):
-        """Return True if this queue is empty, or False otherwise."""
+        """Return True if this deque is empty, or False otherwise."""
         # TODO: Check if empty
         if len(self.list) == 0:
             return True
