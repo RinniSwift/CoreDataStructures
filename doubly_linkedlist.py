@@ -186,6 +186,33 @@ class DoublyLinkedList(object):
 
         raise ValueError('item not in lists: {}'.format(old_item))
 
+    def delete_index(self, index):
+        """Delete and return the node at the given index, or raise ValueError"""
+        node = self.head
+        self.size -= 1
+
+        if index == 0:
+            # index is the head
+            self.head = node.next
+            node.prev = None
+            return
+        elif index == self.size:
+            # index is the tail
+            self.tail = self.tail.prev
+            self.tail.prev.next = None
+            return
+        else:
+            for i in range(index):
+                node = node.next
+
+            node.prev.next = node.next
+            node.next.prev = node.prev
+            return
+
+        raise ValueError('index out of bounds: {}'.format(index))
+
+
+
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         Best case running time: O(1) if deleting head and tail of the linked list
@@ -212,11 +239,9 @@ class DoublyLinkedList(object):
             return
         else:
 
-	    # Start at the head node
             node = self.head
 
             while node != None:
-    	        # Check if the node's data matches the given item
                 if node.data == item:
                     if self.head == node:
                         if node.next == None:
@@ -234,9 +259,7 @@ class DoublyLinkedList(object):
     	                node.next.prev = node.prev
                     	return
                 else:
-    	            # Skip to the next node
                     node = node.next
-	    # Check if we found the given item or we never did and reached the tail
 	    
             else:
     	        # Otherwise raise an error to tell the user that delete has failed
