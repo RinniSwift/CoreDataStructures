@@ -55,14 +55,30 @@ class SetTest(unittest.TestCase):
 		
 	def test_union(self):
 		s1 = Set(['A', 'B', 'C'])
-		s2 = Set(['D', 'E'])
-		assert s1.union(s2) == Set(['A', 'B', 'C', 'D', 'E'])
+		s2 = Set(['D', 'E', 'B'])
+		new_set = s1.union(s2)
+		assert new_set.count == 5
+		assert new_set.contains('A') == True
+		assert new_set.contains('B') == True
+		assert new_set.contains('C') == True
+		assert new_set.contains('D') == True
+		assert new_set.contains('E') == True
+
 		set1 = Set()
 		set2 = Set(['A', 'B', 'C'])
-		assert set1.union(set2) == Set(['A', 'B', 'C'])
+		new_sec_set = set1.union(set2)
+		assert new_sec_set.count == 3
+		assert new_sec_set.contains('A')
+		assert new_sec_set.contains('B')
+		assert new_sec_set.contains('C')
+
 		set_one = Set(['A', 'B', 'C'])
 		set_two = Set()
-		assert set_one.union(set_two) == Set(['A', 'B', 'C'])
+		new_third_set = set_one.union(set_two)
+		assert new_sec_set.count == 3
+		assert new_sec_set.contains('A')
+		assert new_sec_set.contains('B')
+		assert new_sec_set.contains('C')
 
 
 
