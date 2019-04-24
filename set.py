@@ -39,22 +39,15 @@ class Set(object):
 		else:
 			raise KeyError('Element not in set: {}'.format(element))
 
+	def union(self, other_set):
+		"""return a new set that is the union of this set and other_set
+		Union: all elements in both sets
+		"""
+		new_set = Set(self.elements.keys())
 
-	# def union(self, other_set):
-	# 	"""return a new set that is the union of this set and other_set"""
+		for item in other_set.elements.keys():
+			new_set.add(item)
 
-	# 	hash_element_one = self.elements.items()
-	# 	hash_element_two = other_set.elements.items()
-	# 	total_items = Set()
-
-	# 	for key, value in hash_element_one:
-	# 		total_items.elements.set(key, value)
-
-	# 	for key, value in hash_element_two:
-	# 		total_items.elements.set(key, value)
-		
-	# 	print(total_items.elements)
-
-	# 	return total_items
+		return new_set
 
 
