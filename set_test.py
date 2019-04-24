@@ -48,8 +48,22 @@ class SetTest(unittest.TestCase):
 		assert s.count == 4
 		s.remove('A')
 		assert s.count == 3
-		with self.assertRaises(ValueError):
+		with self.assertRaises(KeyError):
 			s.remove('A')
 		s.remove('B')
 		assert s.count == 2
 		
+	def test_union(self):
+		s1 = Set(['A', 'B', 'C'])
+		s2 = Set(['D', 'E'])
+		assert s1.union(s2) == Set(['A', 'B', 'C', 'D', 'E'])
+		set1 = Set()
+		set2 = Set(['A', 'B', 'C'])
+		assert set1.union(set2) == Set(['A', 'B', 'C'])
+		set_one = Set(['A', 'B', 'C'])
+		set_two = Set()
+		assert set_one.union(set_two) == Set(['A', 'B', 'C'])
+
+
+
+
