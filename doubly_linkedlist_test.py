@@ -168,6 +168,22 @@ class LinkedListTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             ll.replace('X', 'Y')  # item not in list
 
+    def test_delete_index(self):
+        ll = DoublyLinkedList(['A', 'B', 'C', 'D', 'E'])
+        assert ll.size == 5
+        ll.delete_index(4)
+        assert ll.head.data == 'A'
+        assert ll.tail.data == 'D'
+        assert ll.size == 4
+        ll.delete_index(0)
+        assert ll.head.data == 'B'
+        assert ll.tail.data == 'D'
+        assert ll.size == 3
+        ll.delete_index(1)
+        assert ll.head.data == 'B'
+        assert ll.tail.data == 'D'
+        assert ll.size == 2
+
     def test_delete(self):
         ll = DoublyLinkedList(['A', 'B', 'C'])
         ll.delete('A')
