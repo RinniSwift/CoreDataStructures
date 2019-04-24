@@ -9,6 +9,8 @@ class SetTest(unittest.TestCase):
 		assert s.count == 0
 		s_two = Set(['R', 'I', 'N'])
 		assert s_two.count == 3
+		s_two = Set(['R', 'I', 'N', 'N', 'I'])
+		assert s_two.count == 3
 
 	def test_contains(self):
 		s = Set(['A', 'B', 'C'])
@@ -41,4 +43,13 @@ class SetTest(unittest.TestCase):
 		s_two.add('R')
 		assert s_two.count == 5
 
+	def test_remove(self):
+		s = Set(['A', 'B', 'C', 'D'])
+		assert s.count == 4
+		s.remove('A')
+		assert s.count == 3
+		with self.assertRaises(ValueError):
+			s.remove('A')
+		s.remove('B')
+		assert s.count == 2
 		
