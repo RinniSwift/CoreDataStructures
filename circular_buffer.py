@@ -7,18 +7,18 @@ class CircularBuffer(object):
 
 	def is_empty(self):
 		if self.size == 0:
-			return False
-		else:
 			return True
+		else:
+			return False
 
 	def is_full(self):
-		if self.size == max_size:
+		if self.size == self.max_size:
 			return True
 		else:
 			return False
 
 	def enqueue(self,item):
-		if self.size < self.max_size:
+		if self.is_full() is False:
 			self.elements.append(item)
 			self.size += 1
 
