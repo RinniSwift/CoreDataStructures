@@ -103,4 +103,16 @@ class SetTest(unittest.TestCase):
 		assert new_set2.contains('A')
 		assert new_set2.contains('B')
 
-
+	def test_is_subset(self):
+		s1 = Set(['A', 'B', 'C'])
+		s2 = Set(['B', 'C'])
+		assert s1.is_subset(s2) == True
+		set1 = Set(['A', 'B', 'C', 'D'])
+		set2 = Set(['C', 'D', 'E', 'F'])
+		assert set1.is_subset(set2) == False
+		set1 = Set(['A', 'B', 'C', 'D'])
+		set2 = Set(['D', 'C', 'A', 'B'])
+		assert set1.is_subset(set2) == True
+		set1 = Set(['A', 'B', 'C', 'D'])
+		set2 = Set(['A', 'Z', 'C', 'Y'])
+		assert set1.is_subset(set2) == False
