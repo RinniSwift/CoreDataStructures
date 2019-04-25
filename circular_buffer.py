@@ -19,6 +19,8 @@ class CircularBuffer(object):
 
 	def enqueue(self,item):
 		"""push item from back of the array"""
+		# O(1) best case when there are no items in the array. simply reasign the last index value
+		# O(n) worst case. n being the total length of the array's max size. having to loop through all items and check the value to the right to reasign the current value
 
 		if self.is_empty():
 			# if buffer is empty, set the last element to be the item
@@ -47,6 +49,9 @@ class CircularBuffer(object):
 			return None
 		
 	def dequeue(self):
+		"""remove and return the item at the front of the buffer"""
+		# O(1) runtime from reasigning value at the front index
+
 		# no items to dequeue
 		if self.size == 0:
 			return None
