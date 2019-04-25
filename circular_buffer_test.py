@@ -56,6 +56,19 @@ class CircularBufferTest(unittest.TestCase):
 		assert new.elements == ['B', 'C', 'D', 'E']
 		assert new.size == 4
 
+	def test_front(self):
+		c = CircularBuffer(4)
+		c.enqueue('R')
+		c.enqueue('I')
+		c.enqueue('N')
+		assert c.front() == 'R'
+		c.dequeue()
+		assert c.front() == 'I'
+		c.dequeue()
+		assert c.front() == 'N'
+		c.dequeue()
+		assert c.front() == None
+
 	def test_dequeue(self):
 		c = CircularBuffer(6)
 		c.enqueue('R')
