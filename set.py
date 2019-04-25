@@ -83,3 +83,15 @@ class Set(object):
 
 		return new_set
 
+	def is_subset(self, other_set):
+		"""return a boolean indicating whether other_set is a subset of this set"""
+
+		for element in other_set.elements.keys():
+			if self.elements.contains(element) is False:
+				return False
+		return True
+
+
+
+
+
