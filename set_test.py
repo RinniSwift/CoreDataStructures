@@ -90,6 +90,17 @@ class SetTest(unittest.TestCase):
 		new_set2 = set1.intersection(set2)
 		assert new_set2.count == 1
 
-
+	def test_difference(self):
+		s1 = Set(['A', 'B', 'C'])
+		s2 = Set(['B', 'C', 'D'])
+		new_set1 = s1.difference(s2)
+		assert new_set1.count == 1
+		assert new_set1.contains('A')
+		set1 = Set(['A', 'B', 'C', 'D'])
+		set2 = Set(['C', 'D', 'E', 'F'])
+		new_set2 = set1.difference(set2)
+		assert new_set2.count == 2
+		assert new_set2.contains('A')
+		assert new_set2.contains('B')
 
 
