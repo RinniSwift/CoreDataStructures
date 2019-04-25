@@ -71,8 +71,15 @@ class Set(object):
 		
 		return new_set
 
+	def difference(self, other_set):
+		"""return a new set that is the difference of this set and other_set
+		Difference: all elements that do not contain in the other_set 
+		"""
+		new_set = Set(self.elements.keys())
 
+		for key in self.elements.keys():
+			if other_set.contains(key):
+				new_set.remove(key)
 
-s = Set(['Q', 'A', 'E'])
-s2 = Set(['R', 'A'])
-s.intersection(s2)
+		return new_set
+
