@@ -95,14 +95,12 @@ class CircularBufferTest(unittest.TestCase):
 		new.enqueue('B')
 		new.enqueue('C')
 		new.enqueue('D')
-		assert c.elements == ['A', 'B', 'C', 'D']
+		assert new.elements == ['A', 'B', 'C', 'D']
 		assert new.dequeue() == 'A'
-		assert c.elements == [None, 'B', 'C', 'D']
+		assert new.elements == [None, 'B', 'C', 'D']
 		new.enqueue('E')
 		new.enqueue('F')
 		assert new.elements == ['C', 'D', 'E', 'F']
 		assert new.dequeue() == 'C'
 		assert new.dequeue() == 'D'
 		assert new.elements == [None, None, 'E', 'F']
-
-
