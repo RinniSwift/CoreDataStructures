@@ -80,6 +80,16 @@ class SetTest(unittest.TestCase):
 		assert new_sec_set.contains('B')
 		assert new_sec_set.contains('C')
 
+	def test_intersection(self):
+		s1 = Set(['A', 'B', 'C'])
+		s2 = Set(['B', 'C', 'D'])
+		new_set1 = s1.intersection(s2)
+		assert new_set1.count == 2
+		set1 = Set(['A', 'B', 'C'])
+		set2 = Set(['C', 'D', 'E', 'F'])
+		new_set2 = set1.intersection(set2)
+		assert new_set2.count == 1
+
 
 
 
