@@ -18,23 +18,24 @@ class Set(object):
 	
 	def contains(self, element):
 		"""returns a boolean indicating whether element is in this set"""
-		if self.elements.contains(element):
-			return True
-		else:
-			return False
+		return self.elements.contains(element)
 
 	def add(self, element):
 		"""adds element to set if not present already"""
+		# O(1) for contains method
 		if self.elements.contains(element):
 			return
 		else:
 			self.count += 1	# increment count by one since we only read the size in the initializer
+			# O(n) for setting
 			self.elements.set(element, element)
 
 	def remove(self, element):
 		"""remove element from this set, if present, or else raise KeyError"""
+		# O(n) for contains method
 		if self.elements.contains(element):
 			self.count -= 1
+			# O(n) for delete
 			self.elements.delete(element)
 		else:
 			raise KeyError('Element not in set: {}'.format(element))
@@ -50,4 +51,28 @@ class Set(object):
 
 		return new_set
 
+	def intersection(self, other_set):
+		"""return a new set that is the intersection of this set and other_set
+		Intersection: all elements that contain in both sets
+		"""
+		new_set = Set()
 
+		if self.count > other_set.count:
+			print(other_set.elements.keys())
+			# loop through other_set
+			for element in other_set.elements.keys():
+				if self.elements.contains(element):
+					print("inside: {}".format(element))
+					new_set.add(element)
+		else:
+			for element in self.elements.keys():
+				if other_set.contains(element):
+					new_set.add(element)
+		
+		return new_set
+
+
+
+s = Set(['Q', 'A', 'E'])
+s2 = Set(['R', 'A'])
+s.intersection(s2)
