@@ -88,3 +88,17 @@
 &nbsp;&nbsp;&nbsp;**load_factor**: used chaining for collision resolution by using linkedlists\
 &nbsp;&nbsp;&nbsp;**load_factor**: calculating the load factor of the hash table\
 &nbsp;&nbsp;&nbsp;**resize**: method that is called when the load factor is greater than 0.75
+
+### Set *(April 22)*
+12. [set.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/set.py)\
+&nbsp;&nbsp;&nbsp;**union**: return all elements that are found in both sets.\
+&nbsp;&nbsp;&nbsp;**intersection**: return all elements in both sets.\
+&nbsp;&nbsp;&nbsp;**difference**: return all elements that do not contain in the other set.\
+&nbsp;&nbsp;&nbsp;**is_subset**: indicating whether all the elements in the set contains in the other set.
+
+### Circular Buffers
+13. [circularbuffer.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/circular_buffer.py)\
+&nbsp;&nbsp;&nbsp; Circular buffer is a fixed array(fixed size) which items gets pushed off as you add to the buffer.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**enqueue**: adds item to the back of the buffer.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**dequeue**: removes and returns the item at the front of the buffer.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**front**: returns the item at the front of the buffer.
