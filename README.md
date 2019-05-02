@@ -98,7 +98,11 @@
 
 ### Circular Buffers
 13. [circularbuffer.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/circular_buffer.py)\
-&nbsp;&nbsp;&nbsp; Circular buffer is a fixed array(fixed size) which items gets pushed off as you add to the buffer.\
+&nbsp;&nbsp;Circular buffer is a fixed array(fixed size) which items gets pushed off as you add to the buffer.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**enqueue**: adds item to the back of the buffer.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**dequeue**: removes and returns the item at the front of the buffer.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**front**: returns the item at the front of the buffer.
+
+### Trees & Binary Search Trees *(April 29)*
+14. [binarytree.py](https://github.com/RinniSwift/CoreDataStructures/blob/master/binarytree.py)\
+&nbsp;&nbsp;&nbsp;creating a binary node class with the data, left, and right properties. 
