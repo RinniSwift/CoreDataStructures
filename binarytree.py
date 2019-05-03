@@ -333,15 +333,13 @@ class BinarySearchTree(object):
             stack.push(popped.right)
             stack.push(popped.left)
 
-
-        
-
     def items_post_order(self):
         """Return a post-order list of all items in this binary search tree."""
         items = []
         if not self.is_empty():
             # Traverse tree post-order from root, appending each node's item
-            self._traverse_post_order_recursive(self.root, items.append)
+            # self._traverse_post_order_recursive(self.root, items.append)
+            self._traverse_post_order_iterative(self.root, items.append)
         # Return post-order list of all items in tree
         return items
 
@@ -364,6 +362,24 @@ class BinarySearchTree(object):
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
         # TODO: Traverse post-order without using recursion (stretch challenge)
+
+        stack = LinkedStack([node])
+        stack2 = LinkedStack()
+
+        while stack.is_empty() == False:
+
+            popped = stack.pop()
+            if popped == None:
+                continue
+
+            stack2.push(popped)
+            stack.push(popped.left)
+            stack.push(popped.right)
+
+        # pop items from stack2 and append to items list
+        while stack2.is_empty() == False:
+            visit(stack2.pop().data)
+
 
     def items_level_order(self):
         """Return a level-order list of all items in this binary search tree."""
