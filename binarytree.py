@@ -1,6 +1,7 @@
 #!python
 
 from queue import LinkedQueue
+from stack import LinkedStack
 
 class BinaryTreeNode(object):
 
@@ -29,20 +30,35 @@ class BinaryTreeNode(object):
         downward path from this node to a descendant leaf node).
         TODO: Best and worst case running time: ??? under what conditions?"""
 
+        # start the counter at -1 in the case where there are no nodes to traverse.
         left = -1
         right = -1
+
         # TODO: Check if left child has a value and if so calculate its height
         if self.left is not None:
+            '''call height() recursively until the left lowest most item returns.
+            The first value that will return is 0 becasue it will go all the way down to the leaf.
+            And then it will return cascadely -- Stack
+                The item that you call on first(root), will get the value back at the end.'''
             left = self.left.height()
 
         # TODO: Check if right child has a value and if so calculate its height
         if self.right is not None:
+            '''call height() recursively until the right lowest most item returns.
+            The first value that will return is 0 becasue it will go all the way down to the leaf.
+            And then it will return cascadely -- Stack
+                The item that you call on first(root), will get the value back at the end.'''
             right = self.right.height()
 
+        # In the case that it's a leaf, return 0
         if self.left is None and self.right is None:
             return 0
 
         # Return one more than the greater of the left height and right height
+        ''' The two first check statements will hit this
+        The return value is the max height of left or right
+        Why plus one? Because once we're at the end of the stack, (all items return back to the top(root)):
+        The value that is returned to the root is the height of the one below it, so you need to plus one for counting itself aswell. '''
         return max(left, right) + 1
         
 
@@ -235,7 +251,8 @@ class BinarySearchTree(object):
         items = []
         if not self.is_empty():
             # Traverse tree in-order from root, appending each node's item
-            self._traverse_in_order_recursive(self.root, items.append)
+            # self._traverse_in_order_recursive(self.root, items.append)
+            self._traverse_in_order_iterative(self.root, items.append)
         # Return in-order list of all items in tree
         return items
 
@@ -259,6 +276,25 @@ class BinarySearchTree(object):
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
         # TODO: Traverse in-order without using recursion (stretch challenge)
+
+        stack = LinkedStack()
+
+        while True:
+
+            if node == None:
+                if stack.is_empty():
+                    break
+                popped = stack.pop()
+                visit(popped.data)
+                node = popped.right
+            else:
+                stack.push(node)
+                node = node.left
+            
+                
+
+
+
 
     def items_pre_order(self):
         """Return a pre-order list of all items in this binary search tree."""
