@@ -59,22 +59,6 @@ class LinkedList(object):
         # TODO: add efficient way to keep track of nodes: within the append and remove function
         return self.size
 
-        """Return the length of this linked list by traversing its nodes.
-        Best and worst case running time: O(n) under what conditions? run time grows linearly to the amount of input"""
-        # Node counter initialized to zero
-        # node_count = 0
-        # # # Start at the head node
-        # node = self.head
-        # # Loop until the node is None, which is one node too far past the tail
-        # while node is not None:
-        #     # Count one for this node
-        #     node_count += 1
-        #     # Skip to the next node
-        #     node = node.next
-        # # Now node_count contains the number of nodes
-        # return node_count
-        
-
     def get_at_index(self, index):
         """Return the item at the given index in this linked list, or
         raise ValueError if the given index is out of range of the list size.
@@ -92,12 +76,9 @@ class LinkedList(object):
             return self.tail.data
         else:
             node = self.head
-            print(node.data)
-            for i in range(index+1):
-                print(node.data)
-                if i == index:
-                    return node.data
+            for i in range(index):
                 node = node.next
+            return node.data
 
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
